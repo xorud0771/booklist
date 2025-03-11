@@ -18,6 +18,32 @@ while True:
     if menu == '1':  # 도서 추가 기능
         print('\n도서 추가')
 
+        while True:
+            codename = input("ISBN : ")
+        
+            check = 0  # 중복 체크 변수
+            for existing_book in books:  # 기존 도서중에서
+                if existing_book["ISBN"] == codename:  # ISBN이 중복되는지 확인
+                    check = 1  # 중복이면
+                    print("이미 등록된 ISBN입니다. 다른 ISBN을 입력하세요.")
+                    break  # 중복되면 루프 종료하고 다시 입력 받기
+        
+            if check == 0:  # 중복된 ISBN이 없으면 정상적으로 입력 받음
+                break  # ISBN이 중복되지 않으면 반복문 종료
+
+        bookname = input("제목 : ")
+        writer = input("저자 : ")
+        possibility = input("대여 여부 : ")
+       
+        book = {  # 딕셔너리 사용
+            "ISBN": codename,
+            "제목": bookname,
+            "저자": writer,
+            "대여 여부": possibility
+        }
+        books.append(book)
+        print("\n도서가 추가 되었습니다\n")
+
 
     elif menu == '2':  # 도서 수정 기능
 
