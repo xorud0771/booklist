@@ -26,8 +26,8 @@ while True:
         print('\n도서 삭제')
 
 
-    elif menu == '4':  # 도서 목록 보기 기능
-        print('\n도서 목록 보기')
+    elif menu == '4':  # 도서 검색 기능
+        print('\n도서 검색')
 
 
     elif menu == '5':  # 프로그램 종료
