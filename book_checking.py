@@ -26,13 +26,59 @@ while True:
     elif menu == '3':  # 도서 삭제 기능
         print('\n도서 삭제')
 
+        if not books: 
+            print("경고: 삭제할 도서가 없습니다.")
+
+        else:
+            remove_isbn = input("삭제할 도서의 ISBN을 입력하세요. >>> ")
+            found = False
+
+            for i in range(len(books)):
+                if books[i]["ISBN"] == remove_isbn:
+                    found = True
+                    print(f"'{books[i]['제목']}' 도서를 삭제하시겠습니까? 예 / 아니요 >>> ")
+                    answer = input("예 / 아니요: ").strip()
+
+                    if answer == '예':
+                        del books[i]
+                        print(f"'{books[i]['제목']}' 도서가 삭제되었습니다.")
+                    else:
+                        print("삭제를 취소합니다.")
+
+                    break 
+
+            if not found:
+                print("해당 ISBN의 도서를 찾을 수 없습니다.")
+
 
     elif menu == '4':  # 도서 검색 기능
         print('\n도서 검색')
 
+        if not books: 
+            print("경고: 검색할 도서가 없습니다.")
+
+        else:
+            search_book = input("검색할 도서의 '제목'을 입력하세요. >>> ")
+            found = False
+
+            for i in range(len(books)):
+                if books[i]["제목"] == search_book:
+                    found = True
+                    print(f"{i} | ISBN: {book['ISBN']} | 제목: {book['제목']} | 저자: {book['저자']} | 대여 여부: {book['대여 여부']}")
+
+                else:
+                    print("")
+
+                break
+
+            if not found:
+                print("해당 제목의 도서를 찾을 수 없습니다.")
+
+
 
     elif menu == '5':  # 도서 대여 반납 기능
         print('\n도서 검색')
+
 
     elif menu == '6':  # 프로그램 종료
         print('\n프로그램 종료')
