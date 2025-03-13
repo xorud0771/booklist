@@ -1,8 +1,11 @@
 from operator import index
 import Book_Checking_func as bcf  # 프로그램 종료를 위해 sys 모듈 사용
 import sys  # 프로그램 종료를 위해 sys 모듈 사용
+<<<<<<< HEAD
 import Book_Checking_func as bcf
 
+=======
+>>>>>>> 1ca3ef3 (Jaewan)
 
 # 사용자에게 보여줄 메뉴 화면
 display = '''

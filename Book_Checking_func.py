@@ -112,6 +112,7 @@ def book_delete(books):
         print("해당 ISBN의 도서를 찾을 수 없습니다.")
 
 def book_search(books):
+<<<<<<< HEAD
     search_type = input("검색할 기준을 선택하세요 (1: ISBN, 2: 제목, 3: 저자, Enter: 전체 목록) >>> ").strip()
     search_value = ""
     
@@ -147,3 +148,45 @@ def book_search(books):
 
 def book_rent(books):
     pass
+=======
+    pass
+
+def book_rent(books):
+        search = input("검색할 도서의 ISBN 또는 제목을 입력하세요 >>> ").strip()
+        found_books = [book for book in books if book["ISBN"] == search or book["제목"] == search]
+  
+        if not found_books:
+            print("❌ 해당 도서를 찾을 수 없습니다.")
+        else:
+            for i, book in enumerate(found_books, start=1):
+                print(f"{i}. ISBN: {book['ISBN']} | 제목: {book['제목']} | 저자: {book['저자']} | 대여 여부: {'대여 중' if book['대여 여부'] else '대여 가능'}")
+
+                select = input("대여/반납할 도서의 번호를 선택하세요 (취소: 0) >>> ").strip()
+
+            if select.isdigit():
+                select = int(select)
+                if select == 0:
+                    print("❌ 도서 대여/반납을 취소했습니다.")
+                elif 1 <= select <= len(found_books):
+                    selected_book = found_books[select - 1]
+
+                    if selected_book["대여 여부"]:  # 이미 대여 중인 경우
+                        confirm = input(f"🔄 '{selected_book['제목']}'을(를) 반납하시겠습니까? (예/아니요) >>> ").strip()
+                        if confirm.lower() == "예":
+                            selected_book["대여 여부"] = False
+                            print(f"✅ '{selected_book['제목']}'이(가) 반납되었습니다.")
+                        else:
+                            print("❌ 반납이 취소되었습니다.")
+                    else:  # 대여 가능한 경우
+                        confirm = input(f"📖 '{selected_book['제목']}'을(를) 대여하시겠습니까? (예/아니요) >>> ").strip()
+                        if confirm.lower() == "예":
+                            selected_book["대여 여부"] = True
+                            print(f"✅ '{selected_book['제목']}'이(가) 대여되었습니다.")
+                        else:
+                            print("❌ 대여가 취소되었습니다.")
+                else:
+                    print("❌ 잘못된 번호입니다.")
+            else:
+                print("❌ 숫자로 입력해주세요.")
+          
+>>>>>>> 1ca3ef3 (Jaewan)
