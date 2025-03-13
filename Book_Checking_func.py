@@ -112,7 +112,7 @@ def book_delete(books):
         print("해당 ISBN의 도서를 찾을 수 없습니다.")
 
 def book_search(books):
-<<<<<<< HEAD
+
     search_type = input("검색할 기준을 선택하세요 (1: ISBN, 2: 제목, 3: 저자, Enter: 전체 목록) >>> ").strip()
     search_value = ""
     
@@ -144,12 +144,6 @@ def book_search(books):
         print("\n📖 도서 목록")
         for i, book in enumerate(found_books, start=1):
             print(f"{i}. ISBN: {book['ISBN']} | 제목: {book['제목']} | 저자: {book['저자']} | 대여 여부: {'대여 중' if book['대여 여부'] else '대여 가능'}")
-
-
-def book_rent(books):
-    pass
-=======
-    pass
 
 def book_rent(books):
         search = input("검색할 도서의 ISBN 또는 제목을 입력하세요 >>> ").strip()
@@ -189,4 +183,3 @@ def book_rent(books):
             else:
                 print("❌ 숫자로 입력해주세요.")
           
->>>>>>> 1ca3ef3 (Jaewan)
