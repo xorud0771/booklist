@@ -58,7 +58,6 @@ while True:
             print("1. ISBN")
             print("2. 제목")
             print("3. 저자")
-            print("4. 대여 여부")
             
             number = int(input('수정할 부분 > ').strip())
 
@@ -90,25 +89,9 @@ while True:
 
         elif number == 2:
             new_title = input(f'새 제목을 입력하세요 (기존 제목: {books[book_num]["제목"]}): ').strip()
-            if new_title == books[book_num]["제목"]:
-                print("제목이 기존과 동일합니다. 다시 입력하세요.")
-            else:
-                books[book_num]["제목"] = new_title
 
         elif number == 3:
             new_author = input(f'새 저자를 입력하세요 (기존 저자: {books[book_num]["저자"]}): ').strip()
-            if new_author == books[book_num]["저자"]:
-                print("저자가 기존과 동일합니다. 다시 입력하세요.")
-            else:
-                books[book_num]["저자"] = new_author
-
-        elif number == 4:
-            new_availability = input(f'새 대여 여부를 입력하세요 (현재 대여 여부: {books[book_num]["대여 여부"]}): ').strip()
-            if new_availability.lower() == "true" or new_availability.lower() == "false":
-                books[book_num]["대여 여부"] = new_availability.lower() == "true"
-                print(f"대여 여부가 수정되었습니다: {books[book_num]['대여 여부']}")
-            else:
-                print("잘못된 입력입니다. 대여 여부는 'true' 또는 'false'로 입력해주세요.")
 
         # 수정 후 최신 도서 정보 출력
         print(f"수정된 도서 정보: {books[book_num]}")
