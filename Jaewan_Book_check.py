@@ -89,12 +89,18 @@ while True:
 
         elif number == 2:
             new_title = input(f'새 제목을 입력하세요 (기존 제목: {books[book_num]["제목"]}): ').strip()
+            books[book_num]["제목"] = new_title
+            print(f"제목이 수정되었습니다: {books[book_num]['제목']}")
 
         elif number == 3:
             new_author = input(f'새 저자를 입력하세요 (기존 저자: {books[book_num]["저자"]}): ').strip()
+            books[book_num]["저자"] = new_author
+            print(f"저자가 수정되었습니다: {books[book_num]['저자']}")
+
 
         # 수정 후 최신 도서 정보 출력
         print(f"수정된 도서 정보: {books[book_num]}")
+
     elif menu == '3':  # 도서 삭제 기능
         print('\n도서 삭제')
 
