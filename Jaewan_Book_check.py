@@ -1,6 +1,7 @@
 from operator import index
 import sys  # 프로그램 종료를 위해 sys 모듈 사용
 
+
 # 사용자에게 보여줄 메뉴 화면
 display = '''
 -------------------------------------------------------------
@@ -18,24 +19,7 @@ while True:
 
     if menu == '1':  # 도서 추가 기능
         print('\n도서 추가')
-        while True:
-          book_number = input(" 번호를 입력하세요(4자리로 설정하시오) >>> ")
-          check = 0 # 중복확인
-          for book in books :
-            if book["ISBN"] == book_number: #번호가 존재하면
-                check = 1 # 중복 확인 변수 변경
-                print("중복된 번호입니다. 새로운 번호로 다시 입력하세요.")
-                break # 중복 발견 시 루프 종료
-
-          if check == 0:
-              break # 중복되지 않으면 입력 허용
-
-        book_title = input(" 제목을 입력하세요 >>> ")
-        book_author = input(" 저자를 입력하세요 >>> ")
-
-        books.append({"ISBN" : book_number, "제목" : book_title, "저자" : book_author, "대여 여부" : False})
-
-        print("도서가 추가되었습니다.")
+        books = bcf.book_input(books)
 
     elif menu == '2':  # 도서 수정 기능
         while True:
