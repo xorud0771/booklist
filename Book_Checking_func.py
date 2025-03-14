@@ -1,3 +1,5 @@
+import json
+
 def book_input(books):
     while True:
         book_number = input(" 번호를 입력하세요(4자리로 설정하시오) >>> ")
@@ -16,7 +18,7 @@ def book_input(books):
 
     books.append({"ISBN" : book_number, "제목" : book_title, "저자" : book_author, "대여 여부" : False})
     print("도서가 추가되었습니다.")
-    return books
+    return []
 
 def book_update(books):
         while True:
@@ -183,3 +185,10 @@ def book_rent(books):
             else:
                 print("❌ 숫자로 입력해주세요.")
           
+def book_save(books,filename):
+    with open(filename,'w')as f:
+        json.dump(books,f,indent=2,ensure_ascii=False)
+
+def book_load(filename):
+    with open(filename)as f:
+        return json.load(f)

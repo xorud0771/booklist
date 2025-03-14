@@ -8,11 +8,10 @@ display = '''
 1. 도서 추가, 2. 도서 수정, 3. 도서 삭제, 4. 도서 검색, 5. 도서 대여 반납 6. 프로그램종료
 -------------------------------------------------------------
 메뉴를 선택하세요 >>> '''
-
+filename = 'bookname.json'
 # 도서를 저장할 리스트 (초기값: 예제 도서 한 개 포함)
-books = [
-    {"ISBN": "0000", "제목": "파이썬 프로그래밍", "저자": "홍길동", "대여 여부": False}
-]
+# 
+books = bcf.book_load(filename)
 
 while True:
     menu = input(display)  # 사용자 입력 받기
@@ -37,7 +36,7 @@ while True:
     elif menu == '5' :  # 도서 검색 및 대여/반납 기능
         print('\n📚 도서 검색 및 대여/반납')
         books = bcf.book_rent(books)
-
+        bcf.book_save(books,filename)
     elif menu == '6':  # 프로그램 종료
         print('\n프로그램 종료')
         sys.exit()
