@@ -10,7 +10,7 @@ display = '''
 메뉴를 선택하세요 >>> '''
 filename = 'bookname.json'
 # 도서를 저장할 리스트 (초기값: 예제 도서 한 개 포함)
-# 
+#books = [ {"ISBN": "0000", "제목": "파이썬 프로그래밍", "저자": "홍길동", "대여 여부": False} ]
 books = bcf.book_load(filename)
 
 while True:
@@ -31,14 +31,16 @@ while True:
 
     elif menu == '4':  # 도서 목록 보기 (검색 기능 추가)
         print("\n📚 도서 목록 검색")
-        books = bcf.book_search(books)
+        bcf.book_search(books)
+        print(books)
 
     elif menu == '5' :  # 도서 검색 및 대여/반납 기능
         print('\n📚 도서 검색 및 대여/반납')
         books = bcf.book_rent(books)
-        bcf.book_save(books,filename)
+        
     elif menu == '6':  # 프로그램 종료
         print('\n프로그램 종료')
+        bcf.book_save(books,filename)
         sys.exit()
 
     else:
